@@ -1,3 +1,4 @@
 config/worker.yml
 *.box
+.vagrant
 .DS_Store
