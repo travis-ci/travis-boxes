@@ -1,6 +1,6 @@
-Support for Travis CI worker box maintenance.
+## Support for Travis CI worker box maintenance.
 
-Use the provided `thor` tasks to build worker base boxes and upload them to S3. They can then be distributed to the worker machines and used for updating the vms.
+Use the provided `thor` tasks to build worker base boxes, including uploading them to S3. They can then be distributed to the worker machines and used for updating the vms.
 
 Base boxes are built per "environment" (i.e. worker type, e.g. "staging", "ruby", "rails", ...)
 
