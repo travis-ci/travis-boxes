@@ -1,4 +1,5 @@
 base: bases/lucid32.box
+memory: 1024
 json:
   rvm:
     rubies:
@@ -36,9 +37,3 @@ recipes:
   # # - mysql::client
   # # - mysql::server_on_ramfs
   # # - memcached
-features:
-  - postgresql
-  - mysql
-  - nodejs
-  - memcached
-
