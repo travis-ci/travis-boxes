@@ -34,11 +34,11 @@ module Travis
         end
 
         def base
-          read_yml('base', true)
+          read_yml('base')
         end
 
         def env(name)
-          read_yml(name, true)
+          read_yml(name)
         end
 
         def local

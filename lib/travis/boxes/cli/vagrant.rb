@@ -17,7 +17,7 @@ module Travis
         method_option :upload, :aliases => '-u', :desc => 'Upload the box'
         method_option :reset,  :aliases => '-r', :type => :boolean, :default => false, :desc => 'Force reset on virtualbox settings and boxes'
 
-        def rebuild
+        def build
           ENV['ENV'] = env
           vbox.reset
 
