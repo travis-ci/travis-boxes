@@ -1,17 +1,17 @@
 require 'archive/tar/minitar'
 require 'json'
+require 'right_aws'
 require 'travis/boxes'
-require 'virtualbox'
 
 module Travis
   module Boxes
     module Cli
       class Vagrant < Thor
-        namespace "travis:boxes:vagrant"
+        namespace "travis:box"
 
         include Cli
 
-        desc 'rebuild', 'Rebuild the base box'
+        desc 'build', 'Build a base box'
         method_option :env,    :aliases => '-e', :default => 'development', :desc => 'Environment the box is built for (e.g staging)'
         method_option :base,   :aliases => '-b', :desc => 'Base box for this box (e.g. lucid32.box)'
         method_option :upload, :aliases => '-u', :desc => 'Upload the box'
@@ -29,6 +29,13 @@ module Travis
           upload if upload?
         end
 
+        desc 'upload', 'Upload a base box'
+        method_option :env, :aliases => '-e', :default => 'development', :desc => 'Environment the box is built for (e.g staging)'
+
+        def upload
+          Travis::Boxes::Upload.new(env, config.s3).perform
+        end
+
         protected
 
           def vbox
@@ -36,7 +43,7 @@ module Travis
           end
 
           def config
-            @config ||= Travis::Boxes::Config.new(env)
+            @config ||= Travis::Boxes::Config.new[env]
           end
 
           def env
@@ -52,7 +59,7 @@ module Travis
           end
 
           def target
-            @target ||= "boxes/#{env}.box" # -#{Time.now.strftime('%Y%m%d%H%M%S')}
+            @target ||= "boxes/#{env}.box"
           end
 
           def download
@@ -79,14 +86,6 @@ module Travis
             run "vagrant halt #{env}"
           end
 
-          # def immute_disk
-          #   run <<-sh
-          #     VBoxManage storageattach #{uuid} --storagectl "SATA Controller" --port 0 --device 0 --medium none
-          #     VBoxManage modifyhd ~/VirtualBox\\\\ VMs/#{uuid}/box-disk1.vmdk/#{name} --type immutable
-          #     VBoxManage storageattach #{uuid} --storagectl "SATA Controller" --port 0 --device 0 --medium #{name} --type hdd
-          #   sh
-          # end
-
           def package_box
             run <<-sh
               vagrant package --base #{uuid}
@@ -95,13 +94,18 @@ module Travis
             sh
           end
 
-          def upload
-          end
-
           def uuid
             meta = JSON.parse(File.read('.vagrant'))
             meta['active'][env] || raise("could not find #{env} uuid in #{meta.inspect}")
           end
+
+          # def immute_disk
+          #   run <<-sh
+          #     VBoxManage storageattach #{uuid} --storagectl "SATA Controller" --port 0 --device 0 --medium none
+          #     VBoxManage modifyhd ~/VirtualBox\\\\ VMs/#{uuid}/box-disk1.vmdk/#{name} --type immutable
+          #     VBoxManage storageattach #{uuid} --storagectl "SATA Controller" --port 0 --device 0 --medium #{name} --type hdd
+          #   sh
+          # end
       end
     end
   end
