@@ -1,2 +1,3 @@
+config/worker.yml
 *.box
 .DS_Store
