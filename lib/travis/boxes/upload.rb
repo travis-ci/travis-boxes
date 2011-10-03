@@ -1,3 +1,5 @@
+require 'right_aws'
+
 module Travis
   module Boxes
     class Upload

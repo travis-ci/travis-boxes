@@ -1,6 +1,5 @@
 require 'archive/tar/minitar'
 require 'json'
-require 'right_aws'
 require 'travis/boxes'
 
 module Travis
