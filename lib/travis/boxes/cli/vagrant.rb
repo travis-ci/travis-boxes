@@ -10,15 +10,14 @@ module Travis
 
         include Cli
 
-        desc 'build', 'Build a base box'
+        desc 'build', 'Build a base box (only the development box by default)'
         method_option :env,    :aliases => '-e', :default => 'development', :desc => 'Environment the box is built for (e.g staging)'
         method_option :base,   :aliases => '-b', :desc => 'Base box for this box (e.g. lucid32.box)'
         method_option :upload, :aliases => '-u', :desc => 'Upload the box'
         method_option :reset,  :aliases => '-r', :type => :boolean, :default => false, :desc => 'Force reset on virtualbox settings and boxes'
 
         def build
-          ENV['ENV'] = env
-          vbox.reset
+          vbox.reset if options['reset']
 
           download
           add_box
@@ -58,11 +57,12 @@ module Travis
           end
 
           def target
-            @target ||= "boxes/#{env}.box"
+            @target ||= "boxes/#{base_box_name}.box"
           end
 
           def download
-            run "wget http://files.vagrantup.com/#{File.basename(base)}" unless File.exists?(base)
+            run "mkdir -p bases"
+            run "wget http://files.vagrantup.com/#{File.basename(base)} -P bases" unless File.exists?(base)
           end
 
           def home_path
@@ -74,15 +74,15 @@ module Travis
           end
 
           def add_box
-            run "vagrant box add #{env} #{base}"
+            run "vagrant box add #{base_box_name} #{base}"
           end
 
           def up
-            run "vagrant up #{env} --provision=true"
+            run "vagrant up #{base_box_name} --provision=true"
           end
 
           def halt
-            run "vagrant halt #{env}"
+            run "vagrant halt #{base_box_name}"
           end
 
           def package_box
@@ -95,7 +95,11 @@ module Travis
 
           def uuid
             meta = JSON.parse(File.read('.vagrant'))
-            meta['active'][env] || raise("could not find #{env} uuid in #{meta.inspect}")
+            meta['active'][base_box_name] || raise("could not find #{base_box_name} uuid in #{meta.inspect}")
+          end
+
+          def base_box_name
+            "travis-#{env}"
           end
 
           # def immute_disk

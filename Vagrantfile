@@ -1,18 +1,36 @@
 $: << 'lib'
 require 'travis/boxes'
 
-env = ENV['ENV'] || 'development'
-config = Travis::Boxes::Config.new[env]
-envs = %w(development staging ruby rails erlang)
+ENV_REGEX = /config\/worker\.(\w+)\.yml/
+
+# reads the files in the config dir and uses them as envs
+envs = Dir['config/*'].map do |dir|
+  match = ENV_REGEX.match(dir)
+
+  if (match && match[1] != 'base')
+    env = match[1]
+    [env, Travis::Boxes::Config.new[env]]
+  else
+    nil
+  end
+end.compact
+
+envs = Hash[envs]
+
+puts "Environments detected : #{envs.keys.join(', ')}\n\n"
+
 
 Vagrant::Config.run do |c|
-  envs.each_with_index do |name, num|
+  envs.each_with_index do |(name, config), num|
 
-    c.vm.define(name) do |box|
-      box.vm.box = name
+    full_name = "travis-#{name}"
+
+    c.vm.define(full_name) do |box|
+      box.vm.box = full_name
       box.vm.forward_port('ssh', 22, 2220 + num)
 
       box.vm.customize do |vm|
+        vm.name = "#{full_name}-base"
         vm.memory_size = config.memory.to_i
       end
 
