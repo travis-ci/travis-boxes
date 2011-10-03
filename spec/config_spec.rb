@@ -9,7 +9,7 @@ describe Travis::Boxes::Config do
     end
 
     it ':base defaults "lucid32_new.box"' do
-      config.test.base.should == 'lucid32_new.box'
+      config.test.base.should == 'lucid32.box'
     end
 
     it ':cookbooks defaults to "vendor/travis-cookbooks"' do
