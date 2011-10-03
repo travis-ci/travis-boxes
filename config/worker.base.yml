@@ -1,0 +1,3 @@
+base: bases/lucid32.box
+memory: 1024
+cookbooks: '../travis-cookbooks/vagrant_base'
