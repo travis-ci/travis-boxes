@@ -18,6 +18,7 @@ GEM
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-ssh (2.1.4)
+    rake (0.9.2)
     rspec (2.6.0)
       rspec-core (~> 2.6.0)
       rspec-expectations (~> 2.6.0)
@@ -47,6 +48,7 @@ DEPENDENCIES
   aws-s3
   hashr (~> 0.0.13)
   multi_json
+  rake
   rspec
   thor
   vagrant (~> 0.8.0)
