@@ -17,8 +17,6 @@ end.compact
 
 envs = Hash[envs]
 
-puts "Environments detected : #{envs.keys.join(', ')}\n\n"
-
 
 Vagrant::Config.run do |c|
   envs.each_with_index do |(name, config), num|
