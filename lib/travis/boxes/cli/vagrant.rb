@@ -62,7 +62,7 @@ module Travis
 
           def download
             run "mkdir -p bases"
-            run "wget http://files.vagrantup.com/#{File.basename(base)} -P bases" unless File.exists?(base)
+            run "wget #{base} -P bases" unless File.exists?(base_name_and_path)
           end
 
           def home_path
@@ -74,7 +74,8 @@ module Travis
           end
 
           def add_box
-            run "vagrant box add #{base_box_name} #{base}"
+            run "vagrant box remove #{base_box_name}"
+            run "vagrant box add #{base_box_name} #{base_name_and_path}"
           end
 
           def up
@@ -100,6 +101,10 @@ module Travis
 
           def base_box_name
             "travis-#{env}"
+          end
+
+          def base_name_and_path
+            "bases/#{File.basename(base)}"
           end
 
           # def immute_disk
