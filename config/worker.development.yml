@@ -1,14 +1,20 @@
 json:
   rvm:
     rubies:
-      - ruby-1.8.7
-      - ruby-1.9.2
-    default:
-      - ruby-1.8.7
+      1.8.7: 1.8.7 
+      rbx-head-1.8: rbx -n 1.8 -- --default-version=1.8  --branch 2.0.testing 
+      rbx-head-1.9: rbx -n 1.9 -- --default-version=1.9  --branch 2.0.testing 
+      jruby-1.6.4-18: jruby -n18 -C -Djruby.default.ruby.version=1.8 
+      jruby-1.6.4-19: jruby -n19 -C -Djruby.default.ruby.version=1.9 
     gems:
       - bundler
       - rake
       - chef
+    aliases:
+      rbx-head-1.8: rbx-1.8 
+      rbx-head-1.9: rbx-1.9
+      jruby-1.6.4-18: jruby-1.8 
+      jruby-1.6.4-19: jruby-1.9
   mysql:
     server_root_password: ""
   postgresql:
@@ -21,16 +27,15 @@ recipes:
   - openssl
   - sysctl
   - libyaml # libyaml MUST be installed before rubies. MK.
-  - emacs::nox
-  - vim
-  - timetrap
   - git
+  - java
+  - ant
+  - maven
   # # - scons
   # # - libv8
   # # - nodejs
   - rvm
   - rvm::multi
-  - sqlite
   # # - postgresql::client
   # # - postgresql::server
   # # - mysql::client
