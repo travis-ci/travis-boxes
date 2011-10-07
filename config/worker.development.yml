@@ -13,8 +13,8 @@ json:
     aliases:
       rbx-head-1.8: rbx-1.8 
       rbx-head-1.9: rbx-1.9
-      jruby-1.6.4-18: jruby-1.8 
-      jruby-1.6.4-19: jruby-1.9
+      jruby-1.6.4-18: jruby-18 
+      jruby-1.6.4-19: jruby-19
   mysql:
     server_root_password: ""
   postgresql:
