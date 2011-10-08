@@ -10,10 +10,10 @@ json:
       - bundler
       - rake
     aliases:
-      rbx-head-n18: rbx18
-      rbx-head-n19: rbx19
-      jruby-1.6.4-n18: jruby18
-      jruby-1.6.4-n19: jruby19
+      rbx18: rbx-head-n18
+      rbx19: rbx-head-n19
+      jruby18: jruby-1.6.4-n18
+      jruby19: jruby-1.6.4-n19
   mysql:
     server_root_password: ""
   postgresql:
