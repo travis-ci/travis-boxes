@@ -11,8 +11,12 @@ json:
       - rake
     aliases:
       rbx18: rbx-head-n18
+      rbx: rbx-head-n18
+      rbx-head:  rbx-head-n18
+      rbx-2.0:  rbx-head-n18
       rbx19: rbx-head-n19
       jruby18: jruby-1.6.4-n18
+      jruby: jruby-1.6.4-n18
       jruby19: jruby-1.6.4-n19
   mysql:
     server_root_password: ""
