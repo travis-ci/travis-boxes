@@ -9,7 +9,6 @@ json:
     gems:
       - bundler
       - rake
-      - chef
     aliases:
       rbx-head-n18: rbx18
       rbx-head-n19: rbx19
