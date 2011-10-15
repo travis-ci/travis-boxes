@@ -40,3 +40,9 @@ Example:
       'secret' => 'secret',
       'another_secret' => 'another_secret',
     }
+
+Manually upload stuff to amazon s3
+
+    brew install s3cmd
+    s3cmd --configure
+    s3cmd put [source] s3://travis-boxes/[target]
