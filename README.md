@@ -16,6 +16,10 @@ then download the base box you want (in this case we will use 32-bit Ubuntu 11.0
 
     cd bases && wget http://files.travis-ci.org/boxes/bases/natty32.box
 
+Then create a separate gem set (often called Travis) on ruby 1.9 (1.9.3 is great), install Bundler and
+
+    bundle install
+
 
 ## Building Boxes
 
@@ -25,7 +29,7 @@ Base boxes are built per "environment" (i.e. worker type, e.g. "staging", "ruby"
 
 E.g. for rebuilding the staging base box use:
 
-    $ thor travis:box:build -e staging -b bases/natty32.box
+    $ thor travis:box:build -e ruby -b bases/natty32.box
 
 
 ## Box Customization
