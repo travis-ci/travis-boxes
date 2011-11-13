@@ -1,12 +1,13 @@
 json:
   rvm:
     rubies:
-      - 1.8.7
-      - 1.9.2-head
-      - 1.9.3
-      - ruby-head
-      - jruby
-      - rbx-2.0
+    - name: 1.8.7
+    - name: 1.9.2-head
+    - name: 1.9.3
+    - name: jruby
+    - name: rbx-head
+      arguments: --branch 2.0.testing
+      using: 1.8.7
     default:
       - ruby-1.8.7
     gems:
@@ -14,7 +15,7 @@ json:
       - rake
       - chef
     aliases:
-      rbx: rbx-2.0
+      1.9.2: 1.9.2-head
   mysql:
     server_root_password: ""
   postgresql:
@@ -44,4 +45,3 @@ recipes:
   - mysql::client
   - mysql::server_on_ramfs
   - memcached
-
