@@ -1,8 +1,4 @@
 json:
-  nodejs:
-    versions:
-      - 0.4.11
-      - 0.5.5
   mysql:
     server_root_password: ""
   postgresql:
@@ -13,23 +9,23 @@ recipes:
   - travis_build_environment
   - apt
   - build-essential
-  - scons
   - networking_basic
   - openssl
   - sysctl
   - libyaml
   - emacs::nox
-  - vim
   - timetrap
   - git
+  - sqlite
+  - postgresql::client
+  - mysql::client
+  - php::multi
+  - postgresql::server
+  - mysql::server
+  - scons
   - libqt4
   - libv8
   - nodejs::multi
-  - sqlite
-  - postgresql::client
-  - postgresql::server
-  - mysql::client
-  - mysql::server
   - redis
   - riak
   - mongodb
@@ -38,4 +34,4 @@ recipes:
   - imagemagick
   - sphinx::all
   - xserver
-
+  - vim
