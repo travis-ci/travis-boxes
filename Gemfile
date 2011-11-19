@@ -1,12 +1,12 @@
 source :rubygems
 
-gem 'thor'
+gem 'thor',       '~> 0.14.6'
 gem 'vagrant',    '~> 0.8.0'
+
 gem 'hashr',      '~> 0.0.17'
-gem 'multi_json'
-gem 'right_aws'
-gem 'rake'
+gem 'multi_json', '~> 1.0.3'
+gem 'right_aws',  '~> 3.0.0'
 
 group :test do
-  gem 'rspec'
+  gem 'rspec',    '~> 2.7.0'
 end
