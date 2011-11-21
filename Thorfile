@@ -4,4 +4,5 @@ $: << 'lib'
 
 require 'travis/boxes/cli/vagrant'
 require 'travis/boxes/cli/vbox'
+require 'travis/boxes/cli/veewee'
 
