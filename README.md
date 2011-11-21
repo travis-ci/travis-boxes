@@ -1,36 +1,30 @@
 # Travis Boxes
 
-Travis Boxes is a set of tools that travis-ci.org team uses to create VM images/Vagrant boxes for
-CI environment virtual machines.
+Travis Boxes is a set of tools that travis-ci.org team uses to create VM images/Vagrant boxes for CI environment virtual machines.
 
 [![Build Status](https://secure.travis-ci.org/travis-ci/travis-boxes.png)](http://travis-ci.org/travis-ci/travis-boxes)
 
+## Getting Started
 
-## Getting started
+Apart from running `bundle install`, also run
 
-First thing you need to do after clone is to create a new directory where base boxes will be kept:
+    $ thor travis:init
 
-    mkdir bases
-
-then download the base box you want (in this case we will use 32-bit Ubuntu 11.04 box):
-
-    cd bases && wget http://files.travis-ci.org/boxes/bases/natty32.box
-
-Then create a separate gem set (often called Travis) on ruby 1.9 (1.9.3 is great), install Bundler and
-
-    bundle install
-
+This will create a blank `config/worker.yml`, please read 'Box Customization' for more info.
 
 ## Building Boxes
 
-Use the provided `thor` tasks to build worker base boxes, including uploading them to S3. They can then be distributed to the worker machines and used for updating the vms.
+Use the provided `thor` tasks to build VirtualBox base boxes and worker boxes, including uploading them to S3. They can then be distributed to the worker machines and used for updating the vms.
 
-Base boxes are built per "environment" (i.e. worker type, e.g. "staging", "ruby", "rails", ...)
+Worker boxes are built per "environment" (i.e. worker type, e.g. "staging", "ruby", "rails", ...)
 
 E.g. for rebuilding the staging base box use:
 
-    $ thor travis:box:build -e ruby -b bases/natty32.box
+    $ thor travis:box:build -e staging
 
+You can also use the `thor` tasks to build a new base box which the worker boxes are provisioned on top of.
+
+    $ thor travis:veewee:build
 
 ## Box Customization
 
