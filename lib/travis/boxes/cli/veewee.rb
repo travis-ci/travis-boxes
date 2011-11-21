@@ -10,16 +10,16 @@ module Travis
 
         include Cli
 
-        desc 'build', 'Build a base box (only the development box by default)'
-        method_option :base,   :aliases => '-b', :default => 'natty32', :desc => 'Base box for this box (e.g. natty32)'
-        method_option :upload, :aliases => '-u', :desc => 'Upload the box'
+        desc 'build', 'Build a base box from a veewee definition(eg. natty32.box)'
+        method_option :definition, :aliases => '-d', :default => 'natty32', :desc => 'Definition to build the base box from (e.g. natty32)'
+        method_option :upload,     :aliases => '-u', :desc => 'Upload the box'
 
         def build
           run <<-sh
-            vagrant basebox build '#{options['base']}'
-            vagrant basebox export   #{options['base']}
+            vagrant basebox build '#{options['definition']}'
+            vagrant basebox export   #{options['definition']}
             mkdir -p boxes
-            mv #{options['base']}.box boxes/#{options['base']}.box
+            mv #{options['definition']}.box boxes/#{options['definition']}.box
           sh
         end
 
