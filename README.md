@@ -15,7 +15,7 @@ This will create a blank `config/worker.yml`, please read 'Box Customization' fo
 ## Chef Cookbooks location
 
 We use [OpsCode Chef](http://www.opscode.com/chef/) to provision VMs (and everything else). travis-boxes assumes [travis-cookbooks](https://github.com/travis-ci/travis-cookbooks) are
-cloned as one directory up, like this:
+located one directory up, like this:
 
     travis-boxes
     travis-cookbooks
