@@ -34,7 +34,7 @@ module Travis
           source = "boxes/#{env}.box"
           target = "boxes/provisioned/#{env}/#{timestamp}.box"
 
-          Travis::Boxes::Upload.new(config.s3).perform(source, target)
+          ::Travis::Boxes::Upload.new(config.s3).perform(source, target)
         end
 
         protected
@@ -44,7 +44,7 @@ module Travis
           end
 
           def config
-            @config ||= Travis::Boxes::Config.new[env]
+            @config ||= ::Travis::Boxes::Config.new[env]
           end
 
           def env
