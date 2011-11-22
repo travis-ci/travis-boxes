@@ -12,6 +12,15 @@ Apart from running `bundle install`, also run
 
 This will create a blank `config/worker.yml`, please read 'Box Customization' for more info.
 
+## Chef Cookbooks location
+
+We use [OpsCode Chef](http://www.opscode.com/chef/) to provision VMs (and everything else). travis-boxes assumes [travis-cookbooks](https://github.com/travis-ci/travis-cookbooks) are
+cloned as one directory up, like this:
+
+    travis-boxes
+    travis-cookbooks
+
+
 ## Building Boxes
 
 Use the provided `thor` tasks to build VirtualBox base boxes and worker boxes, including uploading them to S3. They can then be distributed to the worker machines and used for updating the vms.
