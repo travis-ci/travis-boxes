@@ -3,9 +3,9 @@ cookbooks: '../travis-cookbooks/vagrant_base'
 memory: 1024
 json:
   rvm:
-    default: 1.9.3
+    default: 1.9.2
     rubies:
-    - name: 1.9.3
+    - name: 1.9.2
     gems:
       - bundler
       - rake
