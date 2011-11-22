@@ -77,11 +77,12 @@ Because different language/technology VM setups overlap, we first build the stan
 attributes in host machine specific worker.yml.
 
 
-## Uploading boxes to Amazon S3
+## Uploading boxes
 
-    brew install s3cmd
-    s3cmd --configure
-    s3cmd put [source] s3://travis-boxes/[target]
+    rsync --progress ./boxes/[BOX NAME].box travis@files.travis-ci.org:boxes/bases/[BOX NAME].box
+
+If you need access to files.travis-ci.org, pass your SSH key to [@michaelklishin](https://github.com/michaelklishin)
+
 
 ## License
 
