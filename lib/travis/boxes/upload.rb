@@ -5,13 +5,13 @@ module Travis
     class Upload
       attr_reader :env, :config
 
-      def initialize(env, config)
-        @env = env
+      def initialize(config)
         @config = config
       end
 
-      def perform
-        s3.put(bucket, target, source.open)
+      def perform(source, destination)
+        contents = Pathname.new(source).open
+        s3.put(bucket, destination, contents)
       end
 
       protected
@@ -24,17 +24,6 @@ module Travis
           config.bucket
         end
 
-        def source
-          Pathname.new("boxes/#{env}.box")
-        end
-
-        def target
-          "boxes/#{env}/#{timestamp}.box"
-        end
-
-        def timestamp
-          Time.now.strftime('%Y%m%d%H%M%S')
-        end
     end
   end
 end

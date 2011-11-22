@@ -17,18 +17,35 @@ module Travis
         def build
           run <<-sh
             vagrant basebox build '#{options['definition']}'
-            vagrant basebox export   #{options['definition']}
+            vagrant basebox export #{options['definition']}
             mkdir -p boxes
             mv #{options['definition']}.box boxes/#{options['definition']}.box
           sh
         end
 
         desc 'upload', 'Upload a base box'
-        method_option :env, :aliases => '-e', :default => 'development', :desc => 'Environment the box is built for (e.g staging)'
+        method_option :definition, :aliases => '-d', :default => 'natty32', :desc => 'Definition of the box to upload (e.g. natty32)'
 
         def upload
-          Travis::Boxes::Upload.new(env, config.s3).perform
+          source = "boxes/#{options['definition']}.box"
+          target = "boxes/bases/#{options['definition']}.box"
+
+          ::Travis::Boxes::Upload.new(config.s3).perform(source, target)
         end
+
+        protected
+
+          def vbox
+            @vbox ||= Vbox.new('', options)
+          end
+
+          def config
+            @config ||= ::Travis::Boxes::Config.new
+          end
+
+          def env
+            options['env']
+          end
       end
     end
   end

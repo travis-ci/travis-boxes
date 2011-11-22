@@ -31,7 +31,10 @@ module Travis
         method_option :env, :aliases => '-e', :default => 'development', :desc => 'Environment the box is built for (e.g staging)'
 
         def upload
-          Travis::Boxes::Upload.new(env, config.s3).perform
+          source = "boxes/#{env}.box"
+          target = "boxes/provisioned/#{env}/#{timestamp}.box"
+
+          Travis::Boxes::Upload.new(config.s3).perform(source, target)
         end
 
         protected
@@ -105,6 +108,10 @@ module Travis
 
           def base_name_and_path
             "bases/#{File.basename(base)}"
+          end
+
+          def timestamp
+            Time.now.strftime('%Y%m%d%H%M%S')
           end
 
           # def immute_disk
