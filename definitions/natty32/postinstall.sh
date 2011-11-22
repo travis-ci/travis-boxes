@@ -48,15 +48,15 @@ rm -rf rubygems-1.7.2*
 echo 'PATH=$PATH:/opt/ruby/bin/'> /etc/profile.d/vagrantruby.sh
 
 # Installing vagrant keys
-mkdir /home/travis/.ssh
-chmod 700 /home/travis/.ssh
-cd /home/travis/.ssh
+mkdir /home/vagrant/.ssh
+chmod 700 /home/vagrant/.ssh
+cd /home/vagrant/.ssh
 wget --no-check-certificate 'http://github.com/mitchellh/vagrant/raw/master/keys/vagrant.pub' -O authorized_keys
-chmod 600 /home/travis/.ssh/authorized_keys
-chown -R travis /home/travis/.ssh
+chmod 600 /home/vagrant/.ssh/authorized_keys
+chown -R vagrant /home/vagrant/.ssh
 
 # Installing the virtualbox guest additions
-VBOX_VERSION=$(cat /home/travis/.vbox_version)
+VBOX_VERSION=$(cat /home/vagrant/.vbox_version)
 cd /tmp
 wget http://download.virtualbox.org/virtualbox/$VBOX_VERSION/VBoxGuestAdditions_$VBOX_VERSION.iso
 mount -o loop VBoxGuestAdditions_$VBOX_VERSION.iso /mnt
