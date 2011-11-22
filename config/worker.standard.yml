@@ -1,0 +1,93 @@
+base: http://files.travis-ci.org/boxes/bases/natty32.box
+cookbooks: '../travis-cookbooks/vagrant_base'
+memory: 1024
+json:
+  rvm:
+    default: 1.9.3
+    rubies:
+    - name: 1.9.3
+    gems:
+      - bundler
+      - rake
+      - chef
+  mysql:
+    server_root_password: ""
+  postgresql:
+    max_connections: 256
+  travis_build_environment:
+    use_tmpfs_for_builds: false
+recipes:
+  #
+  # Travis environment + build toolchain
+  #
+  - travis_build_environment
+  - apt
+  - build-essential
+  - networking_basic
+  - openssl
+  - sysctl
+  - git
+  - scons
+  #
+  # additional libraries needed to run headless WebKit,
+  # build parsers, for ossp-uuid to work and so on
+  #
+  - libqt4
+  - libgdbm
+  - libncurses
+  - libossp-uuid
+  - ragel
+  - imagemagick
+  #
+  # JDK and related build toolchain
+  #
+  - java
+  - ant
+  - maven
+  #
+  # Ruby via RVM (default Debian installations are secure at the cost of
+  # being unusable without PATH tweaking, for our VMs we can just go with RVM.
+  # This includes rubygems, bundler and rake.
+  #
+  - rvm
+  - rvm::multi
+  #
+  # Python and pip
+  #
+  - python
+  - python::pip
+  #
+  # Node.js
+  #
+  - nodejs
+  #
+  # Data stores
+  #
+  - sqlite
+  - postgresql::client
+  - postgresql::server
+  - mysql::client
+  - mysql::server
+  - redis
+  - riak
+  - mongodb
+  - couchdb
+  - memcached
+  #
+  # Messaging
+  #
+  - rabbitmq::with_management_plugin
+  #
+  # Search
+  #
+  - sphinx::all
+  #
+  # Headless WebKit, browsers, Selenium toolchain, etc
+  #
+  - xserver
+  - firefox
+  #
+  # Debugging & support
+  #
+  - emacs::nox
+  - vim
