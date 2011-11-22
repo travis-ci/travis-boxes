@@ -61,7 +61,14 @@ Example:
       'another_secret' => 'another_secret',
     }
 
-Manually upload stuff to amazon s3
+## The Standard box
+
+Because different language/technology VM setups overlap, we first build the standard box that only has, for example,
+1 Ruby, 1 Python and 1 Node.js version and then provision VM-specific tools on top of that by modifying Chef node
+attributes in host machine specific worker.yml.
+
+
+## Uploading boxes to Amazon S3
 
     brew install s3cmd
     s3cmd --configure
