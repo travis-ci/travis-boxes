@@ -1,37 +1,7 @@
 json:
-  mysql:
-    server_root_password: ""
-  postgresql:
-    max_connections: 256
-  travis_build_environment:
-    use_tmpfs_for_builds: true
+  nodejs:
+    versions:
+      - 0.4.11
+      - 0.5.5
 recipes:
-  - travis_build_environment
-  - apt
-  - build-essential
-  - networking_basic
-  - openssl
-  - sysctl
-  - libyaml
-  - emacs::nox
-  - timetrap
-  - git
-  - sqlite
-  - postgresql::client
-  - mysql::client
-  - php::multi
-  - postgresql::server
-  - mysql::server
-  - scons
-  - libqt4
-  - libv8
   - nodejs::multi
-  - redis
-  - riak
-  - mongodb
-  - memcached
-  - rabbitmq::with_management_plugin
-  - imagemagick
-  - sphinx::all
-  - xserver
-  - vim

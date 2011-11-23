@@ -1,3 +1,4 @@
+memory: 1536
 json:
   rvm:
     rubies:
@@ -16,32 +17,9 @@ json:
       - chef
     aliases:
       1.9.2: 1.9.2-head
-  mysql:
-    server_root_password: ""
-  postgresql:
-    max_connections: 256
   travis_build_environment:
     use_tmpfs_for_builds: true
 recipes:
   - travis_build_environment
-  - apt
-  - build-essential
-  - networking_basic
-  - openssl
-  - scons
-  - sysctl
-  - libyaml # libyaml MUST be installed before rubies. MK.
-  - emacs::nox
-  - vim
-  - timetrap
-  - git
-  - libv8
-  - nodejs
   - rvm
   - rvm::multi
-  - sqlite
-  # - postgresql::client
-  # - postgresql::server
-  - mysql::client
-  - mysql::server_on_ramfs
-  - memcached
