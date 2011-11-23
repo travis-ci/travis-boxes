@@ -3,3 +3,6 @@ config/worker.yml
 *.iso
 .vagrant
 .DS_Store
+.rvmrc
+#~
+*~
