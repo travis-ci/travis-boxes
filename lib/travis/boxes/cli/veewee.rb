@@ -6,7 +6,7 @@ module Travis
   module Boxes
     module Cli
       class Veewee < Thor
-        namespace "travis:veewee"
+        namespace "travis:base"
 
         include Cli
 
