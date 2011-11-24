@@ -77,7 +77,20 @@ Because different language/technology VM setups overlap, we first build the stan
 
 ## Uploading boxes
 
-    rsync --progress ./boxes/[BOX NAME].box travis@files.travis-ci.org:boxes/bases/[BOX NAME].box
+To upload a base box you can use:
+
+    thor travis:base:upload
+
+This will upload the natty32.box by default. You can use -d to specify a different base box definition to upload.
+
+To upload a provisioned box you can use:
+
+    thor travis:box:upload
+
+This will upload the travis-staging.box by default, renaming it to staging/[yyyy-mm-dd-hhmm].box during the upload process. If you want to upload a different provisioned box you can use the -d option, for example:
+
+    thor travis:box:upload -d standard
+    thor travis:box:upload -d ruby
 
 If you need access to files.travis-ci.org, pass your SSH key to [@michaelklishin](https://github.com/michaelklishin)
 
