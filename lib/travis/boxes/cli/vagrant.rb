@@ -38,7 +38,7 @@ module Travis
 
           remote = ::Travis::Boxes::Remote.new
           remote.upload(original, destination)
-          remote.symlink(destination, "provisioned/#{definition}.box")
+          remote.symlink(destination, "provisioned/travis-#{definition}.box")
         end
 
         protected
