@@ -9,10 +9,10 @@ module Travis
         full_source = Pathname.new(source)
         relative_destination = "boxes/#{destination}"
 
-        puts "Uploading #{source} to #{destination}"
+        puts "Uploading #{source} to #{relative_destination}"
 
         STDOUT.sync = true
-        system("rsync --progress #{source} travis@files.travis-ci.org:#{relative_destination}")
+        system("rsync -avz --progress #{source} travis@files.travis-ci.org:#{relative_destination}")
       end
 
       def symlink(source, target)
