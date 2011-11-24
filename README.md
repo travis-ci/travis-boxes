@@ -29,11 +29,11 @@ Worker boxes are built per "environment" (i.e. worker type, e.g. "staging", "rub
 
 E.g. for rebuilding the staging base box use:
 
-    $ thor travis:box:build -e staging
+    $ thor travis:box:build -d staging
 
 You can also use the `thor` tasks to build a new base box which the worker boxes are provisioned on top of.
 
-    $ thor travis:veewee:build
+    $ thor travis:base:build
 
 ## Box Customization
 
