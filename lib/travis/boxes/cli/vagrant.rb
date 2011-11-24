@@ -11,10 +11,10 @@ module Travis
         include Cli
 
         desc 'build', 'Build a base box (only the development box by default)'
-        method_option :env,    :aliases => '-e', :default => 'development', :desc => 'Environment the box is built for (e.g staging)'
-        method_option :base,   :aliases => '-b', :desc => 'Base box for this box (e.g. natty32.box)'
-        method_option :upload, :aliases => '-u', :desc => 'Upload the box'
-        method_option :reset,  :aliases => '-r', :type => :boolean, :default => false, :desc => 'Force reset on virtualbox settings and boxes'
+        method_option :definition,  :aliases => '-d', :default => 'development', :desc => 'Box definition used for configuration (e.g staging)'
+        method_option :base,        :aliases => '-b', :desc => 'Base box for this box (e.g. natty32.box)'
+        method_option :upload,      :aliases => '-u', :desc => 'Upload the box'
+        method_option :reset,       :aliases => '-r', :type => :boolean, :default => false, :desc => 'Force reset on virtualbox settings and boxes'
 
         def build
           vbox.reset if options['reset']
@@ -28,13 +28,17 @@ module Travis
         end
 
         desc 'upload', 'Upload a base box'
-        method_option :env, :aliases => '-e', :default => 'development', :desc => 'Environment the box is built for (e.g staging)'
+        method_option :definition,  :aliases => '-d', :default => 'development', :desc => 'Box definition to upload (e.g staging)'
 
         def upload
-          source = "boxes/#{env}.box"
-          target = "boxes/provisioned/#{env}/#{timestamp}.box"
+          cached_timestamp = timestamp
 
-          ::Travis::Boxes::Upload.new(config.s3).perform(source, target)
+          original    = "boxes/travis-#{definition}.box"
+          destination = "provisioned/#{definition}/#{cached_timestamp}.box"
+
+          remote = ::Travis::Boxes::Remote.new
+          remote.upload(original, destination)
+          # remote.symlink("#{destination}/#{cached_timestamp}.box", "#{destination}.box")
         end
 
         protected
@@ -44,11 +48,11 @@ module Travis
           end
 
           def config
-            @config ||= ::Travis::Boxes::Config.new[env]
+            @config ||= ::Travis::Boxes::Config.new[definition]
           end
 
-          def env
-            options['env']
+          def definition
+            options['definition']
           end
 
           def upload?
@@ -64,16 +68,8 @@ module Travis
           end
 
           def download
-            run "mkdir -p bases"
-            run "wget #{base} -P bases" unless File.exists?(base_name_and_path)
-          end
-
-          def home_path
-            @home_path ||= Pathname.new(File.expand_path('~/.vagrant.d'))
-          end
-
-          def boxes_path
-            home_path.join('boxes')
+            run "mkdir -p boxes"
+            run "wget #{base} -P boxes" unless File.exists?(base_name_and_path)
           end
 
           def add_box
@@ -103,15 +99,15 @@ module Travis
           end
 
           def base_box_name
-            "travis-#{env}"
+            "travis-#{definition}"
           end
 
           def base_name_and_path
-            "bases/#{File.basename(base)}"
+            "boxes/#{File.basename(base)}"
           end
 
           def timestamp
-            Time.now.strftime('%Y%m%d%H%M%S')
+            Time.now.strftime('%Y-%m-%d-%H%M')
           end
 
       end

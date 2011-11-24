@@ -4,41 +4,36 @@ require 'hashr'
 module Travis
   module Boxes
     class Config
-      class Environment < Hashr
+      class Definition < Hashr
         define :base      => 'natty32.box',
                :cookbooks => 'vendor/travis-cookbooks',
                :json      => {},
-               :recipes   => [],
-               :s3        => { :bucket => 'travis-boxes' }
+               :recipes   => []
       end
 
-      attr_reader :environments
+      attr_reader :definitions
 
       def initialize
-        @environments = {}
+        @definitions = {}
       end
 
-      def environment(name)
-        environments[name.to_sym] ||= Environment.new(read(name.to_s))
+      def definition(name)
+        definitions[name.to_sym] ||= Definition.new(read(name.to_s))
       end
-      alias :[] :environment
+      alias :[] :definition
 
       def method_missing(name, *args, &block)
-        args.empty? ? environment(name) : super
+        args.empty? ? definition(name) : super
       end
 
       protected
 
         def read(name)
-          base.merge(env(name)).merge((local['base'] || {}).merge(local[name] || {})).merge(:env => name)
+          base.merge(read_yml(name)).merge((local['base'] || {}).merge(local[name] || {})).merge(:definition => name)
         end
 
         def base
           read_yml('base')
-        end
-
-        def env(name)
-          read_yml(name)
         end
 
         def local
