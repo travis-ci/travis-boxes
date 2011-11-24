@@ -1,6 +1,4 @@
 base: http://files.travis-ci.org/boxes/bases/natty32.box
-cookbooks: '../travis-cookbooks/vagrant_base'
-memory: 1024
 json:
   rvm:
     default: 1.9.2
