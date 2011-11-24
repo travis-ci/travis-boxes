@@ -114,13 +114,6 @@ module Travis
             Time.now.strftime('%Y%m%d%H%M%S')
           end
 
-          # def immute_disk
-          #   run <<-sh
-          #     VBoxManage storageattach #{uuid} --storagectl "SATA Controller" --port 0 --device 0 --medium none
-          #     VBoxManage modifyhd ~/VirtualBox\\\\ VMs/#{uuid}/box-disk1.vmdk/#{name} --type immutable
-          #     VBoxManage storageattach #{uuid} --storagectl "SATA Controller" --port 0 --device 0 --medium #{name} --type hdd
-          #   sh
-          # end
       end
     end
   end
