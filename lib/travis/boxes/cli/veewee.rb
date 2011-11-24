@@ -16,10 +16,10 @@ module Travis
 
         def build
           run <<-sh
-            vagrant basebox build '#{options['definition']}'
-            vagrant basebox export #{options['definition']}
+            vagrant basebox build '#{definition}'
+            vagrant basebox export #{definition}
             mkdir -p boxes
-            mv #{options['definition']}.box boxes/#{options['definition']}.box
+            mv #{definition}.box boxes/#{definition}.box
           sh
         end
 
@@ -43,8 +43,8 @@ module Travis
             @config ||= ::Travis::Boxes::Config.new
           end
 
-          def env
-            options['env']
+          def definition
+            options['definition']
           end
       end
     end
