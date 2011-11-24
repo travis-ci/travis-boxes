@@ -28,7 +28,7 @@ module Travis
         end
 
         desc 'upload', 'Upload a base box'
-        method_option :definition,  :aliases => '-d', :default => 'development', :desc => 'Box definition to upload (e.g staging)'
+        method_option :definition,  :aliases => '-d', :default => 'staging', :desc => 'Box definition to upload (e.g staging)'
 
         def upload
           cached_timestamp = timestamp
