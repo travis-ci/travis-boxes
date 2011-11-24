@@ -27,10 +27,8 @@ module Travis
         method_option :definition, :aliases => '-d', :default => 'natty32', :desc => 'Definition of the box to upload (e.g. natty32)'
 
         def upload
-          source = "boxes/#{options['definition']}.box"
-          target = "boxes/bases/#{options['definition']}.box"
-
-          ::Travis::Boxes::Upload.new(config.s3).perform(source, target)
+          remote = ::Travis::Boxes::Remote.new
+          remote.upload("boxes/#{definition}.box", "bases/#{definition}.box")
         end
 
         protected
