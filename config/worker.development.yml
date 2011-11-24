@@ -1,12 +1,10 @@
-memory: 1024
 json:
   rvm:
     default: 1.8.7
     rubies:
-    - name: 1.9.3
-    - name: 1.8.7
-    - name: jruby
-    - name: 1.9.2
+      - name: 1.8.7
+      - name: jruby
+      - name: 1.9.2
     gems:
       - bundler
       - rake
