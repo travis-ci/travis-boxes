@@ -1,7 +1,2 @@
-json:
-  mysql:
-    server_root_password: ""
-  postgresql:
-    max_connections: 256
-  recipes:
-    - php::multi
+recipes:
+  - php::multi
