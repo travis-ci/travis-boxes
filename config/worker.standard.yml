@@ -57,7 +57,7 @@ recipes:
   #
   # Node.js
   #
-  - nodejs
+  - nodejs::multi
   #
   # Data stores
   #
