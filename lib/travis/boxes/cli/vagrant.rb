@@ -78,6 +78,7 @@ module Travis
           end
 
           def up
+            run "vagrant destroy #{base_box_name}"
             run "vagrant up #{base_box_name} --provision=true"
           end
 
