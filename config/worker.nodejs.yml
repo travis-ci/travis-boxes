@@ -1,7 +1,2 @@
-json:
-  nodejs:
-    versions:
-      - 0.4.11
-      - 0.5.5
 recipes:
   - nodejs::multi
