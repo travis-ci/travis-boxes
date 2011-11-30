@@ -24,3 +24,4 @@ recipes:
   - rvm
   - rvm::multi
   - mysql::server_on_ramfs
+  - postgresql::server_on_ramfs
