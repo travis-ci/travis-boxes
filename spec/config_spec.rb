@@ -8,8 +8,8 @@ describe Travis::Boxes::Config do
       Travis::Boxes::Config.any_instance.stub(:read).and_return({})
     end
 
-    it ':base defaults "lucid32_new.box"' do
-      config.test.base.should == 'lucid32.box'
+    it ':base defaults "natty32_new.box"' do
+      config.test.base.should == 'natty32.box'
     end
 
     it ':cookbooks defaults to "vendor/travis-cookbooks"' do
@@ -29,7 +29,7 @@ describe Travis::Boxes::Config do
     DATA_STUBS = {
       'local' => { 'base' => { 'secret' => 'secret' }, 'staging' => { 'another_secret' => 'another_secret' } },
       'base'  => { 'foo' => 'foo' },
-      'env'   => { 'bar' => 'bar' }
+      'active_definition' => { 'bar' => 'bar' }
     }
 
     before :each do
@@ -53,7 +53,7 @@ describe Travis::Boxes::Config do
     end
 
     it 'adds the environment to the configuration' do
-      config.staging.env.should == 'staging'
+      config.staging.definition.should == 'staging'
     end
   end
 

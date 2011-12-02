@@ -29,7 +29,7 @@ module Travis
       protected
 
         def read(name)
-          base.merge(read_yml(name)).merge((local['base'] || {}).merge(local[name] || {})).merge(:definition => name)
+          base.merge(active_definition(name)).merge((local['base'] || {}).merge(local[name] || {})).merge('definition' => name)
         end
 
         def base
@@ -38,6 +38,10 @@ module Travis
 
         def local
           read_yml
+        end
+
+        def active_definition(name)
+          read_yml(name)
         end
 
         def read_yml(name = nil)
