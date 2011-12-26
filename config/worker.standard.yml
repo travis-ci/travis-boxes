@@ -41,7 +41,7 @@ recipes:
   #
   - java
   - ant
-  - maven
+  - maven3
   #
   # Ruby via RVM (default Debian installations are secure at the cost of
   # being unusable without PATH tweaking, for our VMs we can just go with RVM.
