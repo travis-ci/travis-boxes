@@ -75,6 +75,7 @@ recipes:
   # Messaging
   #
   - rabbitmq::with_management_plugin
+  - zeromq
   #
   # Search
   #
