@@ -26,6 +26,7 @@ recipes:
   - sysctl
   - git
   - scons
+  - unarchivers
   #
   # additional libraries needed to run headless WebKit,
   # build parsers, for ossp-uuid to work and so on
