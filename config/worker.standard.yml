@@ -35,6 +35,7 @@ recipes:
   - libgdbm
   - libncurses
   - libossp-uuid
+  - libffi
   - ragel
   - imagemagick
   #
