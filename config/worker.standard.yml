@@ -73,6 +73,7 @@ recipes:
   - mongodb
   - couchdb
   - memcached
+  - neo4j-server::tarball
   #
   # Messaging
   #
