@@ -102,4 +102,4 @@ travis-boxes is released under the MIT license.
 
 ## Copyright
 
-2011, The Travis CI Team (contact@travis-ci.org)
+2011-2012, The Travis CI Team (contact@travis-ci.org)
