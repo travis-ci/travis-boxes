@@ -27,6 +27,7 @@ json:
       rbx-2.0.0pre: rbx-head
       rbx-18mode: rbx-head
       rbx-19mode: rbx-head-d19
+      jruby-18mode: jruby
 recipes:
   - rvm
   - rvm::multi
