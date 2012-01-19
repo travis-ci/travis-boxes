@@ -19,6 +19,7 @@ json:
     - name: ree
     - name: 1.9.2
     - name: ruby-head
+    - name: jruby-head
     - name: 1.8.6
     gems:
       - bundler
