@@ -38,3 +38,4 @@ recipes:
   - rvm::multi
   - leiningen
   - sbt
+  - gradle::tarball
