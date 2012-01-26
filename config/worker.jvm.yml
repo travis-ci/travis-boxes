@@ -1,0 +1,8 @@
+recipes:
+  - java
+  - ant
+  - maven3
+  - leiningen
+  - sbt
+  - gradle::tarball
+
