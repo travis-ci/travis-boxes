@@ -36,6 +36,3 @@ json:
 recipes:
   - rvm
   - rvm::multi
-  - leiningen
-  - sbt
-  - gradle::tarball
