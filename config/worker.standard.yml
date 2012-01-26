@@ -25,6 +25,7 @@ recipes:
   - openssl
   - sysctl
   - git
+  - mercurial
   - scons
   - unarchivers
   #
