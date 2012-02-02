@@ -1,3 +1,3 @@
 base: http://files.travis-ci.org/boxes/provisioned/travis-standard.box
-cookbooks: '../travis-cookbooks/vagrant_base'
+cookbooks: '../travis-cookbooks/ci_environment'
 memory: 1024
