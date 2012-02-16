@@ -24,7 +24,6 @@ json:
     gems:
       - bundler
       - rake
-      - chef
     aliases:
       rbx: rbx-head
       rbx-18mode: rbx-head
