@@ -1,2 +1,4 @@
 recipes:
   - php::multi
+  - python::multi
+  - perlbrew::multi
