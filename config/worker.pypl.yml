@@ -1,3 +1,0 @@
-recipes:
-  - python::multi
-  - perlbrew::multi
