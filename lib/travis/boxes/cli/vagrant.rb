@@ -10,13 +10,13 @@ module Travis
 
         include Cli
 
-        desc 'build', 'Build a base box (only the development box by default)'
-        method_option :definition,  :aliases => '-d', :default => 'development', :desc => 'Box definition used for configuration (e.g staging)'
-        method_option :base,        :aliases => '-b', :desc => 'Base box for this box (e.g. natty32.box)'
-        method_option :upload,      :aliases => '-u', :desc => 'Upload the box'
-        method_option :reset,       :aliases => '-r', :type => :boolean, :default => false, :desc => 'Force reset on virtualbox settings and boxes'
+        desc 'build [BOX]', 'Build a base box (defaults to development)'
+        method_option :base,   :aliases => '-b', :desc => 'Base box for this box (e.g. natty32.box)'
+        method_option :upload, :aliases => '-u', :desc => 'Upload the box'
+        method_option :reset,  :aliases => '-r', :type => :boolean, :default => false, :desc => 'Force reset on virtualbox settings and boxes'
 
-        def build
+        def build(box = 'development')
+          self.box = box
           vbox.reset if options['reset']
 
           download
@@ -24,35 +24,33 @@ module Travis
           exit unless up
 
           package_box
-          upload if upload?
+          upload(box) if upload?
         end
 
-        desc 'upload', 'Upload a base box'
-        method_option :definition,  :aliases => '-d', :default => 'staging', :desc => 'Box definition to upload (e.g staging)'
+        desc 'upload', 'Upload a base box (defaults to development)'
 
-        def upload
+        def upload(box = 'development')
+          self.box = box
           cached_timestamp = timestamp
 
-          original    = "boxes/travis-#{definition}.box"
-          destination = "provisioned/#{definition}/#{cached_timestamp}.box"
+          original    = "boxes/travis-#{box}.box"
+          destination = "provisioned/#{box}/#{cached_timestamp}.box"
 
           remote = ::Travis::Boxes::Remote.new
           remote.upload(original, destination)
-          remote.symlink(destination, "provisioned/travis-#{definition}.box")
+          remote.symlink(destination, "provisioned/travis-#{box}.box")
         end
 
         protected
+
+          attr_accessor :box
 
           def vbox
             @vbox ||= Vbox.new('', options)
           end
 
           def config
-            @config ||= ::Travis::Boxes::Config.new[definition]
-          end
-
-          def definition
-            options['definition']
+            @config ||= ::Travis::Boxes::Config.new[box]
           end
 
           def upload?
@@ -100,7 +98,7 @@ module Travis
           end
 
           def base_box_name
-            "travis-#{definition}"
+            "travis-#{box}"
           end
 
           def base_name_and_path
@@ -110,7 +108,6 @@ module Travis
           def timestamp
             Time.now.strftime('%Y-%m-%d-%H%M')
           end
-
       end
     end
   end

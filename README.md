@@ -29,7 +29,7 @@ Worker boxes are built per "environment" (i.e. worker type, e.g. "staging", "rub
 
 E.g. for rebuilding the staging base box use:
 
-    $ thor travis:box:build -d staging
+    $ thor travis:box:build staging
 
 You can also use the `thor` tasks to build a new base box which the worker boxes are provisioned on top of.
 
@@ -89,8 +89,8 @@ To upload a provisioned box you can use:
 
 This will upload the travis-staging.box by default, renaming it to staging/[yyyy-mm-dd-hhmm].box during the upload process. If you want to upload a different provisioned box you can use the -d option, for example:
 
-    thor travis:box:upload -d standard
-    thor travis:box:upload -d ruby
+    thor travis:box:upload standard
+    thor travis:box:upload ruby
 
 If you need access to files.travis-ci.org, pass your SSH key to [@michaelklishin](https://github.com/michaelklishin)
 
