@@ -78,6 +78,7 @@ module Travis
             end
             vagrant.cli("box", "add", base_box_name, base_name_and_path)
             vagrant.boxes.reload!
+            vagrant.reload!
           end
 
           def up
