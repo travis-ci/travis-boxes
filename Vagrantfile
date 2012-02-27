@@ -27,9 +27,12 @@ Vagrant::Config.run do |c|
       box.vm.box = full_name
       box.vm.forward_port(22, 2220 + num, :name => "ssh")
 
-      box.vm.customize ["modifyvm", :id,
-        "--memory", config.memory.to_s,
-        "--name",   "#{full_name}-base"]
+      box.vm.customize [
+        "modifyvm",   :id,
+        "--memory",   config.memory.to_s,
+        "--name",     "#{full_name}-base",
+        "--nictype1", "Am79C973"
+      ]
 
       if config.recipes? && File.directory?(config.cookbooks)
         box.vm.provision :chef_solo do |chef|
