@@ -1,6 +1,7 @@
 require 'archive/tar/minitar'
 require 'json'
 require 'travis/boxes'
+require 'vagrant'
 
 module Travis
   module Boxes
@@ -71,22 +72,26 @@ module Travis
           end
 
           def add_box
-            run "vagrant box remove #{base_box_name}"
-            run "vagrant box add #{base_box_name} #{base_name_and_path}"
+            begin
+              vagrant.cli("box", "remove", base_box_name)
+            rescue ::Vagrant::Errors::BoxNotFound => e
+            end
+            vagrant.cli("box", "add", base_box_name, base_name_and_path)
+            vagrant.boxes.reload!
           end
 
           def up
-            run "vagrant destroy #{base_box_name}"
-            run "vagrant up #{base_box_name} --provision=true"
+            vagrant.cli("destroy", base_box_name)
+            vagrant.cli("up", base_box_name, "--provision")
           end
 
           def halt
-            run "vagrant halt #{base_box_name}"
+            vagrant.cli("halt", base_box_name)
           end
 
           def package_box
+            vagrant.cli("package", "--base", uuid)
             run <<-sh
-              vagrant package --base #{uuid}
               mkdir -p #{File.dirname(target)}
               mv package.box #{target}
             sh
@@ -107,6 +112,10 @@ module Travis
 
           def timestamp
             Time.now.strftime('%Y-%m-%d-%H%M')
+          end
+
+          def vagrant
+            @vagrant ||= ::Vagrant::Environment.new(:ui_class => ::Vagrant::UI::Colored)
           end
       end
     end
