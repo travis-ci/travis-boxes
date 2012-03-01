@@ -68,6 +68,9 @@ module Travis
 
           def download
             run "mkdir -p boxes"
+            # make sure that boxes/travis-*.box in the end is a new downloaded box,
+            # not some old box that will cause wget to append .1 to the name of new file. MK.
+            run "rm -rf #{base_name_and_path}"
             run "wget #{base} -P boxes" unless File.exists?(base_name_and_path)
           end
 
