@@ -18,8 +18,9 @@ json:
       check_for: jruby-d19
     - name: ree
     - name: 1.9.2
-      # ruby-head revision that is known to build fine. MK.
-    - name: ruby-head-sf9cec70898560505f89b7f75b7fe7eabea6a4632
+    # ruby-head revision that is known to build fine. MK.
+    # - name: ruby-head-sf9cec70898560505f89b7f75b7fe7eabea6a4632
+    - name: ruby-head
     - name: jruby-head
     - name: 1.8.6      # for Sinatra, going away in the future. MK.
     gems:
