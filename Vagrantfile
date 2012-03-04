@@ -25,7 +25,7 @@ Vagrant::Config.run do |c|
 
     c.vm.define(full_name) do |box|
       box.vm.box = full_name
-      box.vm.forward_port(22, 2220 + num, :name => "ssh")
+      box.vm.forward_port(22, 3340 + num, :name => "ssh")
 
       box.vm.customize [
         "modifyvm",   :id,
