@@ -5,8 +5,8 @@ recipes:
   - leiningen
   - sbt
   - gradle::tarball
-  # yes, Erlang projects will be hosted on
-  # the new JVM machine. MK.
+  # Erlang projects are hosted on the  JVM machine(s).
   - kerl
   - rebar
-
+  # Haskell projects are hosted on the JVM machine(s).
+  - haskell
