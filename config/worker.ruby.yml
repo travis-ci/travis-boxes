@@ -34,3 +34,4 @@ json:
 recipes:
   - rvm
   - rvm::multi
+  - sweeper

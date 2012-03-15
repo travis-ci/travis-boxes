@@ -10,3 +10,4 @@ recipes:
   - rebar
   # Haskell projects are hosted on the JVM machine(s).
   - haskell
+  - sweeper

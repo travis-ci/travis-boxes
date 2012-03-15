@@ -98,3 +98,4 @@ recipes:
   #
   - emacs::nox
   - vim
+  - sweeper

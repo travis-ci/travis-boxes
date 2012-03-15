@@ -5,3 +5,4 @@ recipes:
   # composer and pip really benefit from these two being preinstalled. MK.
   - bazaar
   - subversion
+  - sweeper
