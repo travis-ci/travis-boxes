@@ -16,11 +16,11 @@ json:
     gems:
       - bundler
       - rake
-      - chef
     aliases:
       rbx: rbx-head
       rbx-18mode: rbx-head
 recipes:
+  - travis_build_environment
   - rvm
   - rvm::multi
   - mysql::server_on_ramfs
