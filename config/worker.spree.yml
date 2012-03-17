@@ -11,15 +11,14 @@ json:
     - name: jruby
     - name: ree
     - name: 1.9.2
-    - name: ruby-head
+    # ruby-head revision that is known to build fine. MK.
+    - name: ruby-head-sd6a977f667f9d824cfe95976f3afc31e55580edb
     gems:
       - bundler
       - rake
       - chef
     aliases:
       rbx: rbx-head
-      rbx-2.0: rbx-head
-      rbx-2.0.0pre: rbx-head
       rbx-18mode: rbx-head
 recipes:
   - rvm
