@@ -18,7 +18,7 @@ Veewee::Session.declare({
     # installed in travis cookbooks (travis_build_environment, to be specific). The reason for this is
     # that some services may use hostname for self-configuration during installation, for example, RabbitMQ
     # does it. Then if hostname changse after reboot, said services may fail in very obscure ways. MK.
-    'hostname=nettuno',
+    'hostname=nettuno ',
     'fb=false debconf/frontend=noninteractive ',
     'keyboard-configuration/layout=USA keyboard-configuration/variant=USA console-setup/ask_detect=false ',
     'initrd=/install/initrd.gz -- <Enter>'
