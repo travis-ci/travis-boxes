@@ -10,13 +10,13 @@ module Travis
 
         include Cli
 
-        desc 'build', 'Build a base box from a veewee definition(eg. natty32.box)'
-        method_option :definition, :aliases => '-d', :default => 'natty32', :desc => 'Definition to build the base box from (e.g. natty32)'
+        desc 'build', 'Build a base box from a veewee definition(eg. oneiric32.box)'
+        method_option :definition, :aliases => '-d', :default => 'oneiric32', :desc => 'Definition to build the base box from (e.g. oneiric32)'
         method_option :upload,     :aliases => '-u', :desc => 'Upload the box'
 
         def build
           run <<-sh
-            vagrant basebox build '#{definition}'
+            veewee vbox build '#{definition} --force'
             vagrant basebox export #{definition}
             mkdir -p boxes
             mv #{definition}.box boxes/#{definition}.box
@@ -24,7 +24,7 @@ module Travis
         end
 
         desc 'upload', 'Upload a base box'
-        method_option :definition, :aliases => '-d', :default => 'natty32', :desc => 'Definition of the box to upload (e.g. natty32)'
+        method_option :definition, :aliases => '-d', :default => 'oneiric32', :desc => 'Definition of the box to upload (e.g. oneiric32)'
 
         def upload
           remote = ::Travis::Boxes::Remote.new
