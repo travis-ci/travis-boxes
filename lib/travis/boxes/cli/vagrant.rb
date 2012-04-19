@@ -85,7 +85,7 @@ module Travis
           end
 
           def up
-            vagrant.cli("destroy", base_box_name)
+            vagrant.cli("destroy", base_box_name, "--force")
             vagrant.cli("up", base_box_name, "--provision")
           end
 
