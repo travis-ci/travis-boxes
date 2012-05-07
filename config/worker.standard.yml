@@ -75,7 +75,7 @@ recipes:
   - redis
   - riak
   - mongodb
-  - couchdb
+  - couchdb::ppa
   - memcached
   - neo4j-server::tarball
   - cassandra::datastax
