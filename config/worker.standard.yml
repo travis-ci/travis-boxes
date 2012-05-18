@@ -39,6 +39,7 @@ recipes:
   - libffi
   - ragel
   - imagemagick
+  - mingw32
   #
   # JDK and related build toolchain
   #
@@ -79,6 +80,7 @@ recipes:
   - memcached
   - neo4j-server::tarball
   - cassandra::datastax
+  - firebird
   #
   # Messaging
   #
