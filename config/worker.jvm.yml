@@ -1,5 +1,5 @@
 recipes:
-  - java
+  - java::multi
   - ant
   - maven3
   - leiningen
