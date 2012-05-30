@@ -31,7 +31,9 @@ Vagrant::Config.run do |c|
         "modifyvm",   :id,
         "--memory",   config.memory.to_s,
         "--name",     "#{full_name}-base",
-        "--nictype1", "Am79C973"
+        "--nictype1", "Am79C973",
+        "--cpus",     "2",
+        "--ioapic",   "on"
       ]
 
       if config.recipes? && File.directory?(config.cookbooks)
