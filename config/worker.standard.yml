@@ -82,6 +82,11 @@ recipes:
   - cassandra::datastax
   - firebird
   #
+  # Database optimizations
+  #
+  - mysql::server_on_ramfs
+  - postgresql::server_on_ramfs
+  #
   # Messaging
   #
   - rabbitmq::with_management_plugin
