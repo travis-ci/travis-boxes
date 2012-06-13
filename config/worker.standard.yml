@@ -70,9 +70,9 @@ recipes:
   #
   - sqlite
   - postgresql::client
-  - postgresql::server
   - mysql::client
-  - mysql::server
+  - mysql::server_on_ramfs
+  - postgresql::server_on_ramfs
   - redis
   - riak
   - mongodb
@@ -81,11 +81,6 @@ recipes:
   - neo4j-server::tarball
   - cassandra::datastax
   - firebird
-  #
-  # Database optimizations
-  #
-  - mysql::server_on_ramfs
-  - postgresql::server_on_ramfs
   #
   # Messaging
   #
