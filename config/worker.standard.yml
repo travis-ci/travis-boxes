@@ -96,6 +96,7 @@ recipes:
   #
   - xserver
   - firefox
+  - chromium
   - phantomjs::tarball
   #
   # Debugging & support
