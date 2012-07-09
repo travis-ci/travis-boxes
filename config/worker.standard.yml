@@ -21,6 +21,8 @@ recipes:
   - travis_build_environment
   - apt
   - build-essential
+  - clang::tarball
+  - golang
   - networking_basic
   - openssl
   - sysctl
@@ -49,7 +51,6 @@ recipes:
   - leiningen
   - sbt
   - gradle::tarball
-  - golang
   #
   # Ruby via RVM (default Debian installations are secure at the cost of
   # being unusable without PATH tweaking, for our VMs we can just go with RVM.
