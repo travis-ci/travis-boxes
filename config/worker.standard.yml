@@ -22,7 +22,7 @@ recipes:
   - apt
   - build-essential
   - clang::tarball
-  - golang
+  - golang::multi
   - networking_basic
   - openssl
   - sysctl
