@@ -1,3 +1,17 @@
+json:
+  nodejs:
+    versions:
+      - 0.4.12
+      - 0.6.19
+      # development version, going away in the future
+      - 0.7.12
+      - 0.8.2
+    aliases:
+      0.4.12: 0.4
+      0.6.19: 0.6
+      0.7.12: 0.7
+      0.8.2: 0.8
+    default: 0.6.19
 recipes:
   - java::multi
   - ant
@@ -5,9 +19,9 @@ recipes:
   - leiningen
   - sbt
   - gradle::tarball
-  # Erlang projects are hosted on the  JVM machine(s).
   - kerl
   - rebar
-  # Haskell projects are hosted on the JVM machine(s).
-  - haskell
+  - haskell::source
+  # Node.js is now co-hosted, too
+  - nodejs::multi
   - sweeper
