@@ -21,7 +21,7 @@ recipes:
   - gradle::tarball
   - kerl
   - rebar
-  - haskell::source
+  - haskell
   # Node.js is now co-hosted, too
   - nodejs::multi
   - sweeper
