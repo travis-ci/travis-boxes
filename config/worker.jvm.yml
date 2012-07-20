@@ -13,6 +13,7 @@ json:
       0.8.2: 0.8
     default: 0.6.19
 recipes:
+  - haskell
   - java::multi
   - ant
   - maven3
@@ -21,7 +22,6 @@ recipes:
   - gradle::tarball
   - kerl
   - rebar
-  - haskell
   # Node.js is now co-hosted, too
   - nodejs::multi
   - sweeper
