@@ -3,14 +3,11 @@ json:
     versions:
       - 0.4.12
       - 0.6.19
-      # development version, going away in the future
-      - 0.7.12
-      - 0.8.2
+      - 0.8.3
     aliases:
       0.4.12: 0.4
       0.6.19: 0.6
-      0.7.12: 0.7
-      0.8.2: 0.8
+      0.8.3: 0.8
     default: 0.6.19
 recipes:
   - haskell
