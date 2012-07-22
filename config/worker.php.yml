@@ -1,6 +1,7 @@
 recipes:
   - perlbrew::multi
   - php::multi
+  - composer
   - python::multi
   # composer and pip really benefit from these two being preinstalled. MK.
   - bazaar
