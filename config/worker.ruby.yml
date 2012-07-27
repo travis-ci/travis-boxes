@@ -5,10 +5,10 @@ json:
     rubies:
     - name: 1.8.7
     - name: rbx-head
-      arguments: --branch 2.0.testing
+      arguments: --sha 53263c0ffa07364c99a1ae1c2e6c733997e233b7
       using: 1.8.7
     - name: rbx-head-d19
-      arguments: --branch 2.0.testing --19
+      arguments: --19 --sha 53263c0ffa07364c99a1ae1c2e6c733997e233b7
       using: 1.9.3
       check_for: rbx-head-d19
     - name: 1.8.7
