@@ -1,14 +1,14 @@
 json:
   nodejs:
     versions:
-      - 0.6.19
-      - 0.8.4
+      - 0.6.21
+      - 0.8.5
       - 0.9.0
     aliases:
-      0.6.19: 0.6
-      0.8.4: 0.8
+      0.6.21: 0.6
+      0.8.5: 0.8
       0.9.0: 0.9
-    default: 0.6.19
+    default: 0.6.21
 recipes:
   - haskell
   - java::multi
