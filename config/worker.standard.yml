@@ -81,8 +81,7 @@ recipes:
   - couchdb::ppa
   - memcached
   - neo4j-server::tarball
-  - cassandra::datastax
-  - firebird
+  - cassandra::tarball
   #
   # Messaging
   #
