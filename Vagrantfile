@@ -23,6 +23,8 @@ Vagrant::Config.run do |c|
 
     full_name = "travis-#{name}"
 
+    c.ssh.username = "travis"
+
     c.vm.define(full_name) do |box|
       box.vm.box = full_name
       box.vm.forward_port(22, 3340 + num, :name => "ssh")
