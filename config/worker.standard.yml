@@ -1,4 +1,4 @@
-base: http://files.travis-ci.org/boxes/bases/oneiric32_base_v2.box
+base: http://files.travis-ci.org/boxes/bases/oneiric32_base.box
 json:
   rvm:
     default: 1.9.3
