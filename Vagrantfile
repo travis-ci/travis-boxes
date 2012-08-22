@@ -23,7 +23,8 @@ Vagrant::Config.run do |c|
 
     full_name = "travis-#{name}"
 
-    c.ssh.username = "travis"
+    # c.ssh.username = "travis"
+    c.ssh.username = "vagrant"
 
     c.vm.define(full_name) do |box|
       box.vm.box = full_name
