@@ -87,6 +87,7 @@ recipes:
   #
   - rabbitmq::with_management_plugin
   - zeromq
+  - kestrel::tarball
   #
   # Search
   #
