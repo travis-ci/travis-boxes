@@ -2,10 +2,10 @@ json:
   apt:
     mirror: us
 recipes:
+  - python::multi
   - perlbrew::multi
   - php::multi
   - composer
-  - python::multi
   # composer and pip really benefit from these two being preinstalled. MK.
   - bazaar
   - subversion
