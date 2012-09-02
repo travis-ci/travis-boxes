@@ -1,5 +1,7 @@
 memory: 1536
 json:
+  apt:
+    mirror: de
   rvm:
     default: 1.9.3
     rubies:

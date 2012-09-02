@@ -1,4 +1,6 @@
 json:
+  apt:
+    mirror: de
   nodejs:
     versions:
       - 0.6.21

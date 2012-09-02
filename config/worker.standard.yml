@@ -1,5 +1,7 @@
 base: http://files.travis-ci.org/boxes/bases/precise32_base_v2.box
 json:
+  apt:
+    mirror: de
   rvm:
     default: 1.9.3
     rubies:

@@ -1,3 +1,6 @@
+json:
+  apt:
+    mirror: de
 recipes:
   - perlbrew::multi
   - php::multi
