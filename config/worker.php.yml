@@ -1,6 +1,3 @@
-json:
-  apt:
-    mirror: de
 recipes:
   - python::multi
   - perlbrew::multi
