@@ -75,7 +75,7 @@ recipes:
   - mysql::client
   - mysql::server_on_ramfs
   - postgresql::server_on_ramfs
-  - redis
+  - redis::ppa
   - riak
   - mongodb
   - couchdb::ppa
