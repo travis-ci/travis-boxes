@@ -79,7 +79,7 @@ recipes:
   - riak
   - mongodb
   - couchdb::ppa
-  - memcached
+  - memcached::ppa
   - neo4j-server::tarball
   - cassandra::tarball
   #
