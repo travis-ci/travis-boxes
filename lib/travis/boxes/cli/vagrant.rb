@@ -59,7 +59,15 @@ module Travis
           end
 
           def base
-            @base ||= options['base'] || config.base
+            @base ||= (calculate_base_url(options['base']) || config.base)
+          end
+
+          def calculate_base_url(input)
+            if (s = input.downcase).start_with?("http")
+              s
+            else
+              "http://files.travis-ci.org/boxes/bases/#{s}.box"
+            end
           end
 
           def target
