@@ -32,6 +32,7 @@ json:
       jruby-18mode: jruby
       jruby-19mode: jruby-d19
 recipes:
+  - sweeper
   - rvm
   - rvm::multi
   - java::multi
