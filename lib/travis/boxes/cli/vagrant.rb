@@ -63,10 +63,14 @@ module Travis
           end
 
           def calculate_base_url(input)
-            if (s = input.downcase).start_with?("http")
-              s
+            if input
+              if (s = input.downcase).start_with?("http")
+                s
+              else
+                "http://files.travis-ci.org/boxes/bases/#{s}.box"
+              end
             else
-              "http://files.travis-ci.org/boxes/bases/#{s}.box"
+              nil
             end
           end
 
