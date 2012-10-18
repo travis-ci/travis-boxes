@@ -1,7 +1,7 @@
 $: << 'lib'
 require 'travis/boxes'
 
-ENV_REGEX = /config\/worker\.(\w+)\.yml/
+ENV_REGEX = /config\/worker\.(.+)\.yml/
 
 # reads the files in the config dir and uses them as envs
 envs = Dir['config/*'].map do |dir|
