@@ -6,3 +6,4 @@ config/worker.yml
 .rvmrc
 #~
 *~
+bin/*
