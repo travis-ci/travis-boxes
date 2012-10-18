@@ -15,12 +15,13 @@ module Travis
         method_option :base,   :aliases => '-b', :desc => 'Base box for this box (e.g. precise64_base.box)'
         method_option :upload, :aliases => '-u', :desc => 'Upload the box'
         method_option :reset,  :aliases => '-r', :type => :boolean, :default => false, :desc => 'Force reset on virtualbox settings and boxes'
-
+        method_option :download,  :aliases => '-d', :type => :boolean, :default => false, :desc => 'Force base image to be redownloaded'
         def build(box = 'development')
           self.box = box
+          puts "Using the '#{box}' image"
           vbox.reset if options['reset']
 
-          download
+          download if options['download']
           add_box
           exit unless up
 
@@ -29,7 +30,6 @@ module Travis
         end
 
         desc 'upload', 'Upload a base box (defaults to development)'
-
         def upload(box = 'development')
           self.box = box
           cached_timestamp = timestamp
