@@ -12,7 +12,7 @@ module Travis
         puts "Uploading #{source} to #{relative_destination}"
 
         STDOUT.sync = true
-        system("ssh travis@files.travis-ci.org 'mkdir -p #{relative_destination}'")
+        system("ssh travis@files.travis-ci.org 'mkdir -p #{destination}'")
         system("rsync -avz --progress #{source} travis@files.travis-ci.org:#{relative_destination}")
       end
 
