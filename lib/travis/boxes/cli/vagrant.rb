@@ -12,7 +12,7 @@ module Travis
         include Cli
 
         desc 'build [BOX]', 'Build a base box (defaults to development)'
-        method_option :base,   :aliases => '-b', :desc => 'Base box for this box (e.g. natty32.box)'
+        method_option :base,   :aliases => '-b', :desc => 'Base box for this box (e.g. precise64_base.box)'
         method_option :upload, :aliases => '-u', :desc => 'Upload the box'
         method_option :reset,  :aliases => '-r', :type => :boolean, :default => false, :desc => 'Force reset on virtualbox settings and boxes'
 
