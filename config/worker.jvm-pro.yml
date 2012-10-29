@@ -1,4 +1,4 @@
-base: http://files.travis-ci.org/boxes/bases/travis-standard-pro.box
+base: http://files.travis-ci.org/boxes/provisioned/travis-standard-pro.box
 json:
   nodejs:
     versions:
