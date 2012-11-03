@@ -30,18 +30,25 @@ Vagrant::Config.run do |c|
       box.vm.forward_port(22, 3340 + num, :name => "ssh")
 
       box.vm.customize [
-        "modifyvm",   :id,
-        "--memory",   config.memory.to_s,
-        "--name",     "#{full_name}-base",
-        "--nictype1", "Am79C973",
-        "--cpus",     "2",
-        "--ioapic",   "on"
-      ]
+                        "modifyvm",   :id,
+                        "--memory",   config.memory.to_s,
+                        "--name",     "#{full_name}-base",
+                        "--nictype1", "Am79C973",
+                        "--cpus",     "2",
+                        "--ioapic",   "on"
+                       ]
+
+      config.vm.provision :shell do |sh|
+        sh.inline = <<-EOF
+          /opt/ruby/bin/gem install chef --no-ri --no-rdoc --no-user-install
+        EOF
+      end
 
       if config.recipes? && File.directory?(config.cookbooks)
         box.vm.provision :chef_solo do |chef|
           chef.cookbooks_path = config.cookbooks
           chef.log_level = :debug # config.log_level
+          chef.binary_path = "/opt/ruby/bin/"
 
           config.recipes.each do |recipe|
             chef.add_recipe(recipe)
