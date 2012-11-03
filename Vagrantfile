@@ -38,7 +38,7 @@ Vagrant::Config.run do |c|
                         "--ioapic",   "on"
                        ]
 
-      config.vm.provision :shell do |sh|
+      box.vm.provision :shell do |sh|
         sh.inline = <<-EOF
           /opt/ruby/bin/gem install chef --no-ri --no-rdoc --no-user-install
         EOF
