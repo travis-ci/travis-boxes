@@ -19,7 +19,7 @@ json:
     - name: ree
     - name: 1.9.2
       # ruby-head revision that is known to build fine. MK.
-    - name: ruby-head-s87450541b34ffae190ecee290a6fbe308b241b3a
+    - name: ruby-head-s7085db45e4f15a58f9a82c8815bcc31364e0fde1
     - name: jruby-head
     gems:
       - bundler
