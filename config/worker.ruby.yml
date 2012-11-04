@@ -21,7 +21,6 @@ json:
       # ruby-head revision that is known to build fine. MK.
     - name: ruby-head-s87450541b34ffae190ecee290a6fbe308b241b3a
     - name: jruby-head
-    - name: 1.8.6      # for Sinatra, going away in the future. MK.
     gems:
       - bundler
       - rake
