@@ -21,6 +21,7 @@ json:
     - name: 1.9.2
     - name: ruby-head-s7085db45e4f15a58f9a82c8815bcc31364e0fde1
     - name: jruby-head
+    - name: ruby-2.0.0-preview1
     gems:
       - bundler
       - rake
@@ -30,6 +31,8 @@ json:
       rbx-19mode: rbx-head-d19
       jruby-18mode: jruby
       jruby-19mode: jruby-d19
+      "2.0.0": "ruby-2.0.0-preview1"
+      "2.0": "ruby-2.0.0-preview1"
 recipes:
   - sweeper
   - rvm
