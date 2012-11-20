@@ -1,0 +1,6 @@
+recipes:
+  - python::multi
+  # pip really benefits from these two being preinstalled. MK.
+  - bazaar
+  - subversion
+  - sweeper

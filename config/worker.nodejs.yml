@@ -1,0 +1,14 @@
+json:
+  nodejs:
+    versions:
+      - 0.6.21
+      - 0.8.14
+      - 0.9.3
+    aliases:
+      0.6.21: 0.6
+      0.8.14: 0.8
+      0.9.3: 0.9
+    default: 0.8.14
+recipes:
+  - nodejs::multi
+  - sweeper

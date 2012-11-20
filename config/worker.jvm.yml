@@ -1,14 +1,3 @@
-json:
-  nodejs:
-    versions:
-      - 0.6.21
-      - 0.8.14
-      - 0.9.3
-    aliases:
-      0.6.21: 0.6
-      0.8.14: 0.8
-      0.9.3: 0.9
-    default: 0.8.14
 recipes:
   - haskell
   - java::multi
@@ -17,8 +6,4 @@ recipes:
   - leiningen
   - sbt
   - gradle::tarball
-  - kerl
-  - rebar
-  # Node.js is now co-hosted, too
-  - nodejs::multi
   - sweeper
