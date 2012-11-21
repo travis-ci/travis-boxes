@@ -18,14 +18,14 @@ sed -i -e 's/%admin ALL=(ALL) ALL/%admin ALL=NOPASSWD:ALL/g' /etc/sudoers
 # Install NFS client
 apt-get -y install nfs-common
 
-wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p290.tar.gz
-tar xvzf ruby-1.9.2-p290.tar.gz
-cd ruby-1.9.2-p290
+wget http://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.3-p327.tar.bz2
+tar xjvf ruby-1.9.3-p327.tar.gz
+cd ruby-1.9.3-p327
 ./configure --prefix=/opt/ruby
 make
 make install
 cd ..
-rm -rf ruby-1.9.2*
+rm -rf ruby-1.9.3*
 
 # Installing Chef
 /opt/ruby/bin/gem install chef --no-ri --no-rdoc
@@ -62,7 +62,7 @@ rm -f /EMPTY
 
 # Removing leftover leases and persistent rules
 echo "cleaning up dhcp leases"
-rm /var/lib/dhcp3/*
+rm /var/lib/dhcp/*
 
 # Make sure Udev doesn't block our network
 # http://6.ptmc.org/?p=164

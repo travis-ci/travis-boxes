@@ -5,7 +5,7 @@ module Travis
   module Boxes
     class Config
       class Definition < Hashr
-        define :base      => 'natty32.box',
+        define :base      => 'precise32.box',
                :cookbooks => 'vendor/travis-cookbooks',
                :json      => {},
                :recipes   => []

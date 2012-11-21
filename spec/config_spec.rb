@@ -8,8 +8,8 @@ describe Travis::Boxes::Config do
       Travis::Boxes::Config.any_instance.stub(:read).and_return({})
     end
 
-    it ':base defaults "natty32_new.box"' do
-      config.test.base.should == 'natty32.box'
+    it ':base defaults "precise32_new.box"' do
+      config.test.base.should == 'precise32.box'
     end
 
     it ':cookbooks defaults to "vendor/travis-cookbooks"' do
