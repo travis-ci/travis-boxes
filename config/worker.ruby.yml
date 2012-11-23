@@ -31,7 +31,6 @@ json:
       rbx-19mode: rbx-head-d19
       jruby-18mode: jruby
       jruby-19mode: jruby-d19
-      "2.0.0": "ruby-2.0.0-preview1"
       "2.0": "ruby-2.0.0-preview1"
 recipes:
   - sweeper
