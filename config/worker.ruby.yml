@@ -21,7 +21,7 @@ json:
       # ruby-head revision that is known to build fine. MK.
     - name: ruby-head-s7085db45e4f15a58f9a82c8815bcc31364e0fde1
     - name: jruby-head
-    - name: ruby-2.0.0-preview1
+    - name: ruby-2.0.0-preview2
     gems:
       - bundler
       - rake
@@ -31,7 +31,7 @@ json:
       rbx-19mode: rbx-head-d19
       jruby-18mode: jruby-d18
       jruby-19mode: jruby
-      "2.0": "ruby-2.0.0-preview1"
+      "2.0": "ruby-2.0.0-preview2"
 recipes:
   - sweeper
   - rvm

@@ -3,7 +3,7 @@ json:
   rvm:
     default: 1.9.3
     rubies:
-    - name: 1.9.3
+      - name: 1.9.3
     gems:
       - bundler
       - rake
