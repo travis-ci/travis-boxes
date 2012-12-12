@@ -20,10 +20,10 @@ json:
       check_for: jruby-d19
     - name: ree
     - name: 1.9.2
-      # ruby-head revision that is known to build fine. MK.
-    - name: ruby-head-s7085db45e4f15a58f9a82c8815bcc31364e0fde1
+      # using commit from https://github.com/ruby/ruby/commit/6f8bce9eff15b527c87e1b13312db2fbf0b504f4
+    - name: ruby-head-6f8bce9eff15b527c87e1b13312db2fbf0b504f4
     - name: jruby-head
-    - name: ruby-2.0.0-preview1
+    - name: ruby-2.0.0-preview2
     gems:
       - bundler
       - rake
@@ -34,7 +34,7 @@ json:
       jruby-18mode: jruby-d18
       jruby-19mode: jruby-d19
       jruby: jruby-19mode
-      "2.0": "ruby-2.0.0-preview1"
+      "2.0": "ruby-2.0.0-preview2"
 recipes:
   - sweeper
   - rvm
