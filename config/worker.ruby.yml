@@ -21,7 +21,7 @@ json:
     - name: ree
     - name: 1.9.2
       # using commit from https://github.com/ruby/ruby/commit/6f8bce9eff15b527c87e1b13312db2fbf0b504f4
-    - name: ruby-head-6f8bce9eff15b527c87e1b13312db2fbf0b504f4
+    - name: ruby-head-s6f8bce9eff15b527c87e1b13312db2fbf0b504f4
     - name: jruby-head
     - name: ruby-2.0.0-preview2
     gems:
