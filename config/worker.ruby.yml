@@ -12,14 +12,16 @@ json:
       using: 1.9.3
       check_for: rbx-head-d19
     - name: 1.8.7
-    - name: jruby
     - name: jruby-d18
       arguments: --18
       check_for: jruby-d18
+    - name: jruby-d19
+      arguments: --19
+      check_for: jruby-d19
     - name: ree
     - name: 1.9.2
-      # ruby-head revision that is known to build fine. MK.
-    - name: ruby-head-s7085db45e4f15a58f9a82c8815bcc31364e0fde1
+      # using commit from https://github.com/ruby/ruby/commit/6f8bce9eff15b527c87e1b13312db2fbf0b504f4
+    - name: ruby-head-6f8bce9eff15b527c87e1b13312db2fbf0b504f4
     - name: jruby-head
     - name: ruby-2.0.0-preview2
     gems:
@@ -30,7 +32,8 @@ json:
       rbx-18mode: rbx-head
       rbx-19mode: rbx-head-d19
       jruby-18mode: jruby-d18
-      jruby-19mode: jruby
+      jruby-19mode: jruby-d19
+      jruby: jruby-19mode
       "2.0": "ruby-2.0.0-preview2"
 recipes:
   - sweeper
