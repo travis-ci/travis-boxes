@@ -4,6 +4,4 @@ recipes:
   - perlbrew::multi
   - php::multi
   - composer
-  - bazaar
-  - subversion
   - sweeper
