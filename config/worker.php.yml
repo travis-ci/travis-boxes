@@ -3,7 +3,4 @@ recipes:
   - perlbrew::multi
   - php::multi
   - composer
-  # composer and pip really benefit from these two being preinstalled. MK.
-  - bazaar
-  - subversion
   - sweeper
