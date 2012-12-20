@@ -46,6 +46,8 @@ recipes:
   - sysctl
   - git::ppa
   - mercurial
+  - bazaar
+  - subversion
   - scons
   - unarchivers
   - doxygen
