@@ -1,9 +1,11 @@
 base: http://files.travis-ci.org/boxes/bases/precise32_base_v2.box
 json:
   rvm:
-    default: 1.9.3
+    default: ruby-1.9.3-p327
     rubies:
-    - name: 1.9.3
+      - name: ruby-1.9.3-p327
+    aliases:
+      "1.9.3": ruby-1.9.3-p327
     gems:
       - bundler
       - rake
