@@ -1,4 +1,5 @@
 recipes:
+  - haskell
   - java::multi
   - ant
   - maven3
