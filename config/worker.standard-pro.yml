@@ -19,9 +19,11 @@ json:
     service:
       enabled: true
   rvm:
-    default: 1.9.3
+    default: 1.9.3-p327
     rubies:
-    - name: 1.9.3
+      - name: 1.9.3-p327
+    aliases:
+      "1.9.3": 1.9.3-p327
     gems:
       - bundler
       - rake
@@ -50,7 +52,6 @@ recipes:
   - subversion
   - scons
   - unarchivers
-  - doxygen
   #
   # additional libraries needed to run headless WebKit,
   # build parsers, for ossp-uuid to work and so on
@@ -107,7 +108,7 @@ recipes:
   # Messaging
   #
   - rabbitmq::with_management_plugin
-  - zeromq
+  - zeromq::ppa
   #
   # Search
   #
