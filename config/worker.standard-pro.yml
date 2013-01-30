@@ -22,8 +22,6 @@ json:
     default: 1.9.3-p327
     rubies:
       - name: 1.9.3-p327
-    aliases:
-      "1.9.3": 1.9.3-p327
     gems:
       - bundler
       - rake
