@@ -1,7 +1,4 @@
 recipes:
   - php::multi
   - composer
-  # composer really benefits from these two being preinstalled. MK.
-  - bazaar
-  - subversion
   - sweeper
