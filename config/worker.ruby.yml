@@ -15,7 +15,7 @@ json:
         # using commit from https://github.com/ruby/ruby/commit/6f8bce9eff15b527c87e1b13312db2fbf0b504f4
       - name: ruby-head-s6f8bce9eff15b527c87e1b13312db2fbf0b504f4
       - name: jruby-head
-      - name: ruby-2.0.0-rc1
+      - name: ruby-2.0.0-rc2
     gems:
       - bundler
       - rake
@@ -23,7 +23,7 @@ json:
       jruby-18mode: jruby-d18
       jruby-19mode: jruby-d19
       jruby: jruby-19mode
-      "2.0": "ruby-2.0.0-rc1"
+      "2.0": "ruby-2.0.0-rc2"
 recipes:
   - sweeper
   - rvm
