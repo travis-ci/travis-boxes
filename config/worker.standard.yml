@@ -66,6 +66,7 @@ recipes:
   # Python and pip
   #
   - python
+  - python::devshm
   - python::pip
   #
   # Node.js
