@@ -56,6 +56,10 @@ recipes:
   - sbt
   - gradle::tarball
   #
+  # Needs to be installed before RVM
+  #
+  - sqlite
+  #
   # Ruby via RVM (default Debian installations are secure at the cost of
   # being unusable without PATH tweaking, for our VMs we can just go with RVM.
   # This includes rubygems, bundler and rake.
@@ -75,7 +79,6 @@ recipes:
   #
   # Data stores
   #
-  - sqlite
   - postgresql::client
   - mysql::client
   - mysql::server_on_ramfs
