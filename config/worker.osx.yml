@@ -5,4 +5,4 @@ json:
     group: staff
 recipes:
   - homebrew
-  - travis_build_environment
+  - travis_build_environment::osx
