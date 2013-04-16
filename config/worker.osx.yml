@@ -6,3 +6,4 @@ json:
 recipes:
   - homebrew
   - travis_build_environment::osx
+  - rvm::multi
