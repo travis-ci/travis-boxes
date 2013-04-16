@@ -11,6 +11,7 @@ json:
     gems:
       - bundler
       - rake
+      - cocoapods
 recipes:
   - homebrew
   - travis_build_environment::osx
