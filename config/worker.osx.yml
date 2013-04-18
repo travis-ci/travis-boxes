@@ -4,10 +4,9 @@ json:
     home: /Users/travis
     group: staff
   rvm:
-    default: 1.9.3
+    default: "1.9.3"
     rubies:
-      - name: 1.8.7
-      - name: 1.9.3
+      - name: "1.9.3"
     gems:
       - bundler
       - rake
