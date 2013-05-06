@@ -20,6 +20,7 @@ json:
       - bundler
       - rake
     aliases:
+      rbx: rbx-weekly-d18
       jruby-18mode: jruby-d18
       jruby-19mode: jruby-d19
       jruby: jruby-19mode
