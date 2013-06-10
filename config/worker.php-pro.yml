@@ -1,0 +1,7 @@
+base: http://files.travis-ci.org/boxes/provisioned/travis-standard-pro.box
+recipes:
+  - python::multi
+  - perlbrew::multi
+  - php::multi
+  - composer
+  - sweeper
