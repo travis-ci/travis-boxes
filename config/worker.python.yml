@@ -1,0 +1,4 @@
+recipes:
+  - python::multi
+  - python::devshm
+  - sweeper

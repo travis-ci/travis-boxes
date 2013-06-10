@@ -1,11 +1,8 @@
-base: http://files.travis-ci.org/boxes/bases/precise32_base_v2.box
 json:
   rvm:
-    default: ruby-1.9.3-p327
+    default: 1.9.3
     rubies:
-      - name: ruby-1.9.3-p327
-    aliases:
-      "1.9.3": ruby-1.9.3-p327
+      - name: 1.9.3
     gems:
       - bundler
       - rake
@@ -56,6 +53,10 @@ recipes:
   - sbt
   - gradle::tarball
   #
+  # Needs to be installed before RVM
+  #
+  - sqlite
+  #
   # Ruby via RVM (default Debian installations are secure at the cost of
   # being unusable without PATH tweaking, for our VMs we can just go with RVM.
   # This includes rubygems, bundler and rake.
@@ -66,6 +67,7 @@ recipes:
   # Python and pip
   #
   - python
+  - python::devshm
   - python::pip
   #
   # Node.js
@@ -74,7 +76,6 @@ recipes:
   #
   # Data stores
   #
-  - sqlite
   - postgresql::client
   - mysql::client
   - mysql::server_on_ramfs

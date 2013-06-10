@@ -1,6 +1,4 @@
 recipes:
-  - python::multi
-  - perlbrew::multi
   - php::multi
   - composer
   - sweeper

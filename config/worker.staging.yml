@@ -1,4 +1,3 @@
-memory: 1536
 json:
   rvm:
     default: 1.8.7
