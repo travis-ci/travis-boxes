@@ -1,21 +1,20 @@
-memory: 1536
 json:
   rvm:
     default: 1.9.3
     rubies:
-    - name: 1.8.7
-    - name: jruby-d18
-      arguments: --18
-      check_for: jruby-d18
-    - name: jruby-d19
-      arguments: --19
-      check_for: jruby-d19
-    - name: ree
-    - name: 1.9.2
-      # using commit from https://github.com/ruby/ruby/commit/6f8bce9eff15b527c87e1b13312db2fbf0b504f4
-    - name: ruby-head-s6f8bce9eff15b527c87e1b13312db2fbf0b504f4
-    - name: jruby-head
-    - name: ruby-2.0.0-rc1
+      - name: 1.8.7
+      - name: jruby-d18
+        arguments: --18
+        check_for: jruby-d18
+      - name: jruby-d19
+        arguments: --19
+        check_for: jruby-d19
+      - name: ree
+      - name: 1.9.2
+        # using commit from https://github.com/ruby/ruby/commit/52a802a4285647a8dfce77c0dd5ded1c4532fd73
+      - name: ruby-head-s52a802a4285647a8dfce77c0dd5ded1c4532fd73
+      - name: jruby-head
+      - name: 2.0.0
     gems:
       - bundler
       - rake
@@ -23,7 +22,7 @@ json:
       jruby-18mode: jruby-d18
       jruby-19mode: jruby-d19
       jruby: jruby-19mode
-      "2.0": "ruby-2.0.0-rc1"
+      "2.0": "ruby-2.0.0"
 recipes:
   - sweeper
   - rvm
