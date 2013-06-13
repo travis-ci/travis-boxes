@@ -101,7 +101,7 @@ recipes:
   # Headless WebKit, browsers, Selenium toolchain, etc
   #
   - xserver
-  - firefox
+  - firefox::tarball
   - chromium
   - phantomjs::tarball
   #
