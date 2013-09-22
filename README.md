@@ -1,3 +1,5 @@
+## [Deprecated] This repo is not currently maintained. We are in the process of figuring out better tooling for building VMs.
+
 # Travis Boxes
 
 Travis Boxes is a set of tools that travis-ci.org team uses to create VM images/Vagrant boxes for CI environment virtual machines.
