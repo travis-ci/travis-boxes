@@ -1,18 +1,11 @@
 json:
   nodejs:
-    versions:
-      - 0.6.21
-      - 0.8.24
-      - 0.9.12
-      - 0.10.9
+    others:
+      # 0.10.x is default, already defined in default attributes.
       - 0.11.2
-    aliases:
-      0.6.21: 0.6
-      0.8.24: 0.8
-      0.9.12: 0.9
-      0.10.9: 0.10
-      0.11.2: 0.11
-    default: 0.10.9
+      - 0.9.12
+      - 0.8.25
+      - 0.6.21
 recipes:
   - nodejs::multi
   - sweeper
