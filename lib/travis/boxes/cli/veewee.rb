@@ -6,12 +6,12 @@ module Travis
   module Boxes
     module Cli
       class Veewee < Thor
-        namespace "travis:base"
+        namespace 'travis:base'
 
         include Cli
 
-        desc 'build', 'Build a base box from a veewee definition(eg. oneiric32.box)'
-        method_option :definition, :aliases => '-d', :default => 'oneiric32', :desc => 'Definition to build the base box from (e.g. oneiric32)'
+        desc 'build', 'Build a base box from a veewee definition(eg. precise32.box)'
+        method_option :definition, :aliases => '-d', :default => 'precise32', :desc => 'Definition to build the base box from (e.g. precise32)'
         method_option :upload,     :aliases => '-u', :desc => 'Upload the box'
 
         def build
@@ -24,7 +24,7 @@ module Travis
         end
 
         desc 'upload', 'Upload a base box'
-        method_option :definition, :aliases => '-d', :default => 'oneiric32', :desc => 'Definition of the box to upload (e.g. oneiric32)'
+        method_option :definition, :aliases => '-d', :default => 'precise32', :desc => 'Definition of the box to upload (e.g. precise32)'
 
         def upload
           remote = ::Travis::Boxes::Remote.new

@@ -83,7 +83,7 @@ To upload a base box you can use:
 
     thor travis:base:upload
 
-This will upload the natty32.box by default. You can use -d to specify a different base box definition to upload.
+This will upload the precise32.box by default. You can use -d to specify a different base box definition to upload.
 
 To upload a provisioned box you can use:
 
