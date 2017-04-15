@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'thor',           '~> 0.14.6'
+gem 'thor',           '~> 0.15'
 
 gem 'vagrant',        '~> 1.0.2'
 gem 'vagrant-vbguest'
