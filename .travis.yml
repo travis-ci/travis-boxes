@@ -3,3 +3,5 @@ rvm:
   - 1.9.2
   - 1.9.3
 script: rspec spec
+before_install:
+  - gem install rubygems-update -v 3.4.22
